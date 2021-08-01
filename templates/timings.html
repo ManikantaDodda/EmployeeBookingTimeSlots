@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- <title>My Login Page</title> -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/my-login.css' %}">
+</head>
+
+<body class="my-login-page">
+    
+					
+    <br>	
+    <br>	
+    <h2>Welcome to {{obj.name}}</h2>
+    <br>	
+    <br>
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center ">
+				
+						<div class="card-body">
+							<div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <h4>Today</h4>
+                                        <h6 style="color:green;">8 slots Availble</h6>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <h4>Tommorow</h4>
+                                        <h6 style="color:green;">9 slots Availble</h6>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <h4>Wed, 28 jul</h4>
+                                        <h6 style="color:green;">12 slots Availble</h6>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <h4>Morning</h4>
+                                       
+                                    </div>
+                                    
+                                    <div class="col-lg-3">
+                                        {% for i in obj %}
+                                        {% if i.occupied == False %}
+                                      <a href="/morning/{{i.id}}"><button style="background-color: green;">{{i.slot1}}</button></a>  
+                                      {% elif i.occupied == True %}
+                                      <a href=""><button style="background-color: red;">{{i.slot1}}</button></a>
+                                        {% endif %}
+                                        {% endfor %}
+                                    
+                                    </div>
+                                    
+                                    <div class="col-lg-3">
+                                       
+                                    </div>
+                                    <div class="col-lg-3">
+                                      
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <h4>Afternoon</h4>
+                                       
+                                    </div>
+                                    
+                                    <div class="col-lg-3">
+                                        {% for j in obj2 %}
+                                        {% if j.occupied == False %}
+                                      <a href="/afternoon/{{j.id}}"><button style="background-color: green;">{{j.slot2}}</button></a>  
+                                      {% elif j.occupied == True %}
+                                      <a href=""><button style="background-color: red;">{{j.slot2}}</button></a>
+                                      {% endif %}
+                                      {% endfor %}
+                                       
+                                    </div>
+                                    
+                                    <div class="col-lg-3">
+                                      
+                                    </div>
+                                    <div class="col-lg-3">
+                                       
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <h4>Evening</h4>
+                                       
+                                    </div>
+                                    
+                                    <div class="col-lg-3">
+                                        {% for k in obj3 %}
+                                     {% if k.occupied == False %}
+                                      <a href="/evening/{{k.id}}"><button style="background-color: green;">{{k.slot3}}</button></a>  
+                                      {% elif k.occupied == True %}
+                                      <a href=""><button style="background-color: red;">{{k.slot3}}</button></a>
+                                      {% endif %}
+                                      {% endfor %}
+                                    </div>
+                                    
+                                    <div class="col-lg-3">
+                                       
+                                    </div>
+                                    <div class="col-lg-3">
+                                      
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+							
+						</div>
+					</div>
+					<!-- <div class="footer">
+						Copyright &copy; 2017 &mdash; Your Company 
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="{% static 'js/my-login.js' %}"></script>
+</body>
+</html>
